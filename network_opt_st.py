@@ -25,7 +25,7 @@ st.write("THIRD: Once information is verified, hit 'Run'.")
 
 # POSSIBLE PROBLEM - need to have encoding of utf-8
 uploaded_file = st.file_uploader("Select file for upload", type="csv", encoding = "utf-8")
-accounts = pd.read_csv("https://raw.githubusercontent.com/mmobley8/mytest/master/export%20(2).csv")
+accounts = pd.read_csv("https://raw.githubusercontent.com/mmobley8/Contact-Network-Optimization-App/master/export%20(2).csv")
 
 def title_search():
     title_string = '''CTO OR CIO OR 'Chief Data Officer' OR 'Chief Privacy Officer' OR 'Chief Analytics Officer' OR 'Chief Digital Officer' OR 'Data Engineer' OR 'Data Strategy' OR 'Data Lake' OR 'Data Integration' OR 'Principal Architect' OR 'Big Data Architect' OR 'Cloud Architect' OR 'Data Architect' OR 'Enterprise Architecture' OR 'Chief Data Architect' OR 'Cloud Architect' OR 'Digital Transformation' OR 'Cloud Security' OR Infrastructure OR 'Cloud security engineer' OR 'cloud analytics' OR CISO OR 'Information Security Architect' OR 'Data Protection' OR 'Data Security' OR 'Security Architect' OR 'Privacy Officer' OR 'cyber security architect' OR 'Chief Privacy Officer' OR 'Director of Risk Management' OR 'Compliance Director' OR 'IT Risk' OR Analytics OR 'Data Management' OR BI OR 'Director of Big Data' OR 'Data Governance' OR 'Data Platform' OR 'VP IT' OR 'Director of IT' OR 'Information Management' OR 'IT Audit' OR CDO OR CAO'''
