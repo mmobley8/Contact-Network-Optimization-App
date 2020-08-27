@@ -54,7 +54,7 @@ def opt():
     series_list = [pd.Series(connections["First Name"].astype("object")), pd.Series(connections["Last Name"]), pd.Series(connections["Company"]), pd.Series(connections["Position"])]
     connections_new = pd.concat(series_list, axis = 1)
     connections_new["Recommendation"] = connections_new["Position"].apply(lambda x: "Yes" if x in title_search() else "No")
-    connections_new = connections_new[connections_new["Recommendation"] == "Yes"]
+#     connections_new = connections_new[connections_new["Recommendation"] == "Yes"]
     st.write("")
     st.write("Success. View your results below.")
     st.write(connections_new)
