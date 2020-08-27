@@ -4,11 +4,11 @@ import pandas as pd
 from fuzzywuzzy import process, fuzz
 import re
 import base64
-import io
-from pyspark.sql.functions import col, when, lit
-import pyspark
-from pyspark.sql import SparkSession
-from pyspark.sql.types import *
+# import io
+# from pyspark.sql.functions import col, when, lit
+# import pyspark
+# from pyspark.sql import SparkSession
+# from pyspark.sql.types import *
 
 # spark = SparkSession.builder.appName('NetworkOpt').getOrCreate()
 
