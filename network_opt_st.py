@@ -40,8 +40,8 @@ def company_search():
     company_search = ["".join(re.findall(r"['!&.,A-Za-z0-9 _-]", " ".join([char.strip() for char in company.split()]).strip())) for company in temp_company_list]
     return company_search
 
-def fuzz_m(col, company_list, score_t):
-    new_company, score = process.extractOne(col, company_list, scorer=score_t)
+def fuzz_m(col, mylist, score_t):
+    new_company, score = process.extractOne(col, mylist, scorer=score_t)
     if score<95:
         return col
     else:
@@ -50,11 +50,12 @@ def fuzz_m(col, company_list, score_t):
 def opt():
     st.write("Running...")
     st.write("This may take a few minutes.")
-    connections['Company '] = connections['Company'].apply(fuzz_m, company_list=company_search(), score_t=fuzz.ratio)
+    connections['Company'] = connections['Company'].apply(fuzz_m, mylist=company_search(), score_t=fuzz.ratio)
     series_list = [pd.Series(connections["First Name"].astype("object")), pd.Series(connections["Last Name"]), pd.Series(connections["Company"]), pd.Series(connections["Position"])]
     connections_new = pd.concat(series_list, axis = 1)
     connections_new["Recommendation"] = connections_new["Position"].apply(lambda x: "Yes" if x in title_search() else "No")
-#     connections_new = connections_new[connections_new["Recommendation"] == "Yes"]
+    # connections_new["comp_changed"] = bool(connections_new["Company"]
+    # connections_new = connections_new[connections_new["Recommendation"] == "Yes"]
     st.write("")
     st.write("Success. View your results below.")
     st.write(connections_new)
